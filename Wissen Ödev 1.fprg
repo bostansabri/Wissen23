@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="AHMET SABR&#304; BOSTAN"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-04-28 11:16:00 &#214;S"/>
+        <attribute name="created" value="QUhNRVQgU0FCUsSwIEJPU1RBTjtTQUJSSUJPU1RBTjsyMDIzLTA0LTI4OzEwOjA0OjEyIMOWUzszNzIz"/>
+        <attribute name="edited" value="QUhNRVQgU0FCUsSwIEJPU1RBTjtTQUJSSUJPU1RBTjsyMDIzLTA0LTI4OzExOjE2OjAwIMOWUzszOzM4MzQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Erkek, Evet, Hayir, CinsiyetSecimi, KahveBegenmeSecimi, AnketeDevamSecimi" type="String" array="False" size=""/>
+            <declare name="ErkekCinsiyetSayaci, KadinCinsiyetSayaci, AnketeKatilanKisiSayaci" type="Integer" array="False" size=""/>
+            <declare name="ErkekKahveSayaci, KadinKahveSayaci" type="Integer" array="False" size=""/>
+            <assign variable="AnketeKatilanKisiSayaci" expression="0"/>
+            <assign variable="ErkekCinsiyetSayaci" expression="0"/>
+            <assign variable="KadinCinsiyetSayaci" expression="0"/>
+            <assign variable="ErkekKahveSayaci" expression="0"/>
+            <assign variable="KadinKahveSayaci" expression="0"/>
+            <do expression="AnketeDevamSecimi=&quot;Evet&quot;">
+                <output expression="&quot;Cinsiyetiniz Nedir?&quot;" newline="True"/>
+                <input variable="CinsiyetSecimi"/>
+                <if expression="CinsiyetSecimi=&quot;Erkek&quot;">
+                    <then>
+                        <assign variable="ErkekCinsiyetSayaci" expression="ErkekCinsiyetSayaci+1"/>
+                        <output expression="&quot;Kahveyi Begendiniz Mi?&quot;" newline="True"/>
+                        <input variable="KahveBegenmeSecimi"/>
+                        <if expression="KahveBegenmeSecimi=&quot;Evet&quot;">
+                            <then>
+                                <assign variable="ErkekKahveSayaci" expression="ErkekKahveSayaci+1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="KadinCinsiyetSayaci" expression="KadinCinsiyetSayaci+1"/>
+                        <output expression="&quot;Kahveyi Begendiniz Mi?&quot;" newline="True"/>
+                        <input variable="KahveBegenmeSecimi"/>
+                        <if expression="KahveBegenmeSecimi=&quot;Evet&quot;">
+                            <then>
+                                <assign variable="KadinKahveSayaci" expression="KadinKahveSayaci+1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Ankete Devam Etmek Istiyor Musun?&quot;" newline="True"/>
+                <input variable="AnketeDevamSecimi"/>
+            </do>
+            <output expression="&quot;Ankete Katilan Kisi Sayisi: &quot; &amp;ErkekCinsiyetSayaci+KadinCinsiyetSayaci" newline="True"/>
+            <output expression="&quot;Ankete Katilan Erkek Sayisi: &quot; &amp;ErkekCinsiyetSayaci" newline="True"/>
+            <output expression="&quot;Ankete Katilan Kadin Sayisi: &quot; &amp;KadinCinsiyetSayaci" newline="True"/>
+            <output expression="&quot;Kahveyi Begenen Kisi Sayisi: &quot; &amp;ErkekKahveSayaci+KadinKahveSayaci" newline="True"/>
+            <output expression="&quot;Kahveyi Begenen Erkek Sayisi: &quot; &amp;ErkekKahveSayaci" newline="True"/>
+            <output expression="&quot;Kahveyi Begenen Kadin Sayisi: &quot; &amp;KadinKahveSayaci" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
